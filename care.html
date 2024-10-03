@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Care Job Pathways</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .care-homes .section-title {
+            color: #b9665f;
+        }
+
+        .care-at-home .section-title {
+            color: #7E71CE;
+        }
+
+        .reablement .section-title {
+            color: #5589b2;
+        }
+
+        .day-care .section-title {
+            color: #5ba563;
+        }
+
+        .care-homes {
+            background-color: #fbe3dc;
+        }
+
+        .care-at-home {
+            background-color: #ebe1f8;
+        }
+
+        .reablement {
+            background-color: #d4e8f1;
+        }
+
+        .day-care {
+            background-color: #daf2d7;
+        }
+
+        .pathway {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            position: relative;
+        }
+
+        .pathway div {
+            padding: 15px;
+            border-radius: 10px;
+            height: 80px;
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+        }
+
+        /* Arrow lines inherit the color of their respective pathway boxes */
+        .pathway div:after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 3px;
+            background-color: inherit; /* Arrow line inherits color */
+        }
+
+        /* Arrowheads with manually set border colors matching background */
+        .pathway div:before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Set specific background colors for each section and their arrows */
+        .care-homes .pathway div {
+            background-color: #b9665f;
+        }
+
+        /* Extend the arrow from Social Care Assistant to Social Care Worker, including the gap */
+        .care-homes .pathway div:nth-child(2):after {
+            width: calc(100% + 100% + 20px); /* Span the empty div and the gap between divs */
+        }
+
+        .care-homes .pathway div:nth-child(2):before {
+            border-right: 3px solid #b9665f;
+            border-bottom: 3px solid #b9665f;
+            right: calc(-(100% + 100% + 40px)); /* Move the arrowhead to the right, past the gap and empty div */
+        }
+
+        .care-homes .pathway div:before {
+            border-right: 3px solid #b9665f;
+            border-bottom: 3px solid #b9665f;
+        }
+
+        .care-at-home .pathway div {
+            background-color: #7E71CE;
+        }
+
+        .care-at-home .pathway div:before {
+            border-right: 3px solid #7E71CE;
+            border-bottom: 3px solid #7E71CE;
+        }
+
+        .reablement .pathway div {
+            background-color: #5589b2;
+        }
+
+        .reablement .pathway div:before {
+            border-right: 3px solid #5589b2;
+            border-bottom: 3px solid #5589b2;
+        }
+
+        .day-care .pathway div {
+            background-color: #5ba563;
+        }
+
+        .day-care .pathway div:before {
+            border-right: 3px solid #5ba563;
+            border-bottom: 3px solid #5ba563;
+        }
+
+        /* Remove arrows for the last child */
+        .pathway div:last-child:before,
+        .pathway div:last-child:after {
+            display: none;
+        }
+
+        /* Handle gaps in pathways */
+        .care-homes .pathway div:nth-child(3),
+        .reablement .pathway div:nth-child(1),
+        .reablement .pathway div:nth-child(2) {
+            visibility: hidden;
+            background-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="section care-homes">
+        <div class="section-title">Care Homes</div>
+        <div class="pathway">
+            <div>Modern Apprentice</div>
+            <div>Social Care Assistant</div>
+            <div></div> <!-- Empty div to create the gap -->
+            <div>Social Care Worker</div>
+            <div>Deputy Manager</div>
+        </div>
+    </div>
+
+    <div class="section care-at-home">
+        <div class="section-title">Care at Home</div>
+        <div class="pathway">
+            <div>Modern Apprentice</div>
+            <div>Admin Assistant</div>
+            <div>Senior Health Care Support Worker</div>
+            <div>Lead Senior Health Care Support Worker</div>
+            <div>Care at Home Officer</div>
+        </div>
+    </div>
+
+    <div class="section reablement">
+        <div class="section-title">Re-ablement</div>
+        <div class="pathway">
+            <div></div>
+            <div></div>
+            <div>Enablement Worker</div>
+            <div>Senior Reablement Worker and Senior Reablement Development Worker</div>
+            <div>Enablement Officer</div>
+        </div>
+    </div>
+
+    <div class="section day-care">
+        <div class="section-title">Day Care</div>
+        <div class="pathway">
+            <div>Modern Apprentice</div>
+            <div>Social Care Assistant (Day Care)</div>
+            <div>Social Care Support Assistant</div>
+            <div>Social Care Worker (Day Care)</div>
+            <div>Team Lead</div>
+        </div>
+    </div>
+</body>
+</html>
