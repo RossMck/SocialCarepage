@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Care Job Pathways</title>
+    <title>Social Care Pathways</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -106,8 +106,8 @@
         }
 
         /* Extend the arrow from Social Care Assistant to Social Care Worker, including the gap */
-        .care-homes .pathway div:nth-child(2):after {
-            width: calc(100% + 100% + 20px); /* Span the empty div and the gap between divs */
+        .care-homes .pathway div:nth-child(3):after {
+            width: calc(100% + 100% + 40px); /* Increase the width to span the gap */
         }
 
         .care-homes .pathway div:nth-child(2):before {
@@ -162,6 +162,37 @@
             background-color: transparent;
         }
 
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 500px;
+            width: 80%;
+        }
+
+        .close-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -202,11 +233,33 @@
         <div class="section-title">Day Care</div>
         <div class="pathway">
             <div>Modern Apprentice</div>
-            <div>Social Care Assistant (Day Care)</div>
-            <div>Social Care Support Assistant</div>
-            <div>Social Care Worker (Day Care)</div>
-            <div>Team Lead</div>
+            <div>Day Care Assistant</div>
+            <div>Senior Day Care Assistant</div>
+            <div>Day Care Officer</div>
+            <div>Day Care Manager</div>
         </div>
     </div>
+
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <p id="overlay-text">Dummy text</p>
+            <button class="close-btn" onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.pathway div').forEach(div => {
+            div.addEventListener('click', function() {
+                const overlay = document.getElementById('overlay');
+                const overlayText = document.getElementById('overlay-text');
+                overlayText.textContent = `Dummy text for ${this.textContent}`;
+                overlay.style.display = 'flex';
+            });
+        });
+
+        function closeOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
